@@ -34,7 +34,6 @@ import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.Polyline;
-import com.google.maps.android.data.kml.KmlLayer;
 
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding;
 import io.flutter.plugin.common.BinaryMessenger;
@@ -460,10 +459,12 @@ final class GoogleMapController
 
     @Override
     public void onMarkerDragStart(Marker marker) {
+        markersController.onMarkerDragStart(marker.getId(), marker.getPosition());
     }
 
     @Override
     public void onMarkerDrag(Marker marker) {
+        markersController.onMarkerDrag(marker.getId(), marker.getPosition());
     }
 
     @Override
